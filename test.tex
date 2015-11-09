@@ -25,10 +25,11 @@
 \usepackage{forloop}
 \usepackage{quran}
 %The xepersian package automatically load bidi, and I've loaded it because I want to set a font that supports Arabic letters
-\usepackage{xepersian}
+\usepackage{arabxetex}
 
 % This macro set the main text font for non-latin letter, and it can scale font.
-\settextfont[Scale=2]{Scheherazade}
+\newfontfamily\arabicfont[Script=Arabic]{_PDMS_Saleem_QuranFont}
+%\setarabfont[Scale=2]{_PDMS_Saleem_QuranFont.ttf}
 
 \def\surna[#1]{\centerline{\hss\surahname[#1]\hss\lr{\surahname[#1]}\hss}}
 \def\test#1{
@@ -38,18 +39,18 @@
     \bigskip
 }
 
-\title{\lr{Quran Translation}}
-\author{\lr{Maulana Maududi}}
+\title{{Quran Translation}}
+\author{{Maulana Maududi}}
 \begin{document}
-\maketitle
-\tableofcontents
-\newpage
+%\maketitle
+%\tableofcontents
+%\newpage
 % For typesetting بِسمِ اللَّهِ الرَّحمٰنِ الرَّحيمِ use below macro
-\input{qu.tex}
-
-%\quransurah[108] % Surah Al-Kauther
-
-%%\surna[110]\quransurah*[110]  % Surah Al-Nasr
+%\input{qu.tex}
+\begin{arab}
+\quranayah*[2][256]((\textLR{1})) % Surah Al-Kauther
+\end{arab}
+%%\surna[110]\h*[110]  % Surah Al-Nasr
 
 %The below typeset 104th surah through 113th surah.
 %%\quransurah*[104-113]
@@ -69,7 +70,7 @@
 %%\newcounter{jz}
 %%\forloop{jz}{1}{\value{jz} < 31} {\quranjuz[\value{jz}]}
 
-%%\quranjuz*[28-30]
+%\quranjuz*[28-30]
 %\hfill  صفحة  \arabic{pg} \par
 %\quranpage*[\value{pg}]\vfill}
 
